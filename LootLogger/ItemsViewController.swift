@@ -48,17 +48,22 @@ class ItemsViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView,
-            cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // Create an instance of UITableViewCell with default appearance
-        let cell = UITableViewCell(style: .value1, reuseIdentifier: "UITableViewCell")
+                            cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        // Get a new or recycled cell
+
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell",
+                                                 for: indexPath) as! ItemCell
 
         // Set the text on the cell with the description of the item
         // that is at the nth index of items, where n = row this cell
-        // will appear in on the table view
+        // will appear in on the tableview
         let item = itemStore.allItems[indexPath.row]
 
-        cell.textLabel?.text = item.name
-        cell.detailTextLabel?.text = "$\(item.valueInDollars)"
+
+        // Configure the cell with the Item
+        cell.nameLabel.text = item.name
+        cell.serialNumberLabel.text = item.serialNumber
+        cell.valueLabel.text = "$\(item.valueInDollars)"
 
         return cell
     }
@@ -83,6 +88,13 @@ class ItemsViewController: UITableViewController {
                             to destinationIndexPath: IndexPath) {
         // Update the model
         itemStore.moveItem(from: sourceIndexPath.row, to: destinationIndexPath.row)
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 65
     }
    
 }
