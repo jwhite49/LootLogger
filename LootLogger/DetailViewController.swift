@@ -72,7 +72,16 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
         view.endEditing(true)
     }
     
-    
-    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // Set the keyboard type for valueField to number pad
+        valueField.keyboardType = .numberPad
+    }
+
+    @objc func doneTapped() {
+        valueField.resignFirstResponder()
+    }
+
 
 }
