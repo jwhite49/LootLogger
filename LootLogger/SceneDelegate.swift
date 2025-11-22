@@ -10,6 +10,7 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    var imageStore: ImageStore!
 
 
     func scene(_ scene: UIScene,
@@ -18,6 +19,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         guard let _ = (scene as? UIWindowScene) else { return }
 
+        // Create an ImageStore
+        let imageStore = ImageStore()
         // Create an ItemStore
         let itemStore = ItemStore()
 

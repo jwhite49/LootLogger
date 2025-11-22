@@ -64,6 +64,7 @@ class Item: Equatable, Codable {
         case serialNumber
         case dateCreated
         case category
+        case itemKey
     }
     
     func encode(to encoder: Encoder) throws {
@@ -73,6 +74,7 @@ class Item: Equatable, Codable {
         try container.encode(valueInDollars, forKey: .valueInDollars)
         try container.encode(serialNumber, forKey: .serialNumber)
         try container.encode(dateCreated, forKey: .dateCreated)
+        try container.encode(itemKey, forKey: .itemKey)
 
         switch category {
         case .electronics:
@@ -93,6 +95,8 @@ class Item: Equatable, Codable {
         valueInDollars = try container.decode(Int.self, forKey: .valueInDollars)
         serialNumber = try container.decode(String?.self, forKey: .serialNumber)
         dateCreated = try container.decode(Date.self, forKey: .dateCreated)
+        itemKey = try container.decode(String.self, forKey: .itemKey)   
+
 
         let categoryString = try container.decode(String.self, forKey: .category)
         switch categoryString {
