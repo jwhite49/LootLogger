@@ -87,7 +87,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="dRo-VJ-kWn">
-                                <rect key="frame" x="8" y="180" width="377" height="596"/>
+                                <rect key="frame" x="8" y="180" width="377" height="592"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="M33-Pi-GWb">
                                         <rect key="frame" x="0.0" y="0.0" width="377" height="34"/>
@@ -150,13 +150,26 @@
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date Created" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uhj-af-aj4">
-                                        <rect key="frame" x="0.0" y="126" width="377" height="470"/>
+                                        <rect key="frame" x="0.0" y="125.99999999999999" width="377" height="20.333333333333329"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="248" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="2aH-qT-ydF">
+                                        <rect key="frame" x="0.0" y="154.33333333333329" width="377" height="437.66666666666674"/>
+                                    </imageView>
                                 </subviews>
                             </stackView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OOO-C0-0cj">
+                                <rect key="frame" x="0.0" y="772" width="393" height="48"/>
+                                <items>
+                                    <barButtonItem systemItem="camera" id="BxM-er-LIp">
+                                        <connections>
+                                            <action selector="choosePhotoSource:" destination="UIa-jP-sJ5" id="zt7-wJ-GPQ"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="KhP-gm-ggB"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -164,8 +177,11 @@
                         <constraints>
                             <constraint firstItem="dRo-VJ-kWn" firstAttribute="leading" secondItem="KhP-gm-ggB" secondAttribute="leading" constant="8" id="BtM-iq-Gbp"/>
                             <constraint firstItem="dRo-VJ-kWn" firstAttribute="top" secondItem="KhP-gm-ggB" secondAttribute="top" constant="8" id="BzD-R8-FZF"/>
+                            <constraint firstAttribute="bottom" secondItem="OOO-C0-0cj" secondAttribute="bottom" constant="32" id="RCy-wV-Oje"/>
+                            <constraint firstItem="OOO-C0-0cj" firstAttribute="leading" secondItem="4gC-rU-Py3" secondAttribute="leading" id="X8W-Kb-xzi"/>
+                            <constraint firstAttribute="trailing" secondItem="OOO-C0-0cj" secondAttribute="trailing" id="cG9-i1-GHf"/>
                             <constraint firstItem="KhP-gm-ggB" firstAttribute="trailing" secondItem="dRo-VJ-kWn" secondAttribute="trailing" constant="8" id="r0k-VR-CUF"/>
-                            <constraint firstItem="KhP-gm-ggB" firstAttribute="bottom" secondItem="dRo-VJ-kWn" secondAttribute="bottom" constant="8" id="xc6-aE-1YR"/>
+                            <constraint firstItem="OOO-C0-0cj" firstAttribute="top" secondItem="dRo-VJ-kWn" secondAttribute="bottom" id="vlf-A3-pw8"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="4e5-n8-ZhI" appends="YES" id="dVQ-fU-Zod"/>
@@ -174,6 +190,7 @@
                     <navigationItem key="navigationItem" id="JNU-sH-fsL"/>
                     <connections>
                         <outlet property="dateLabel" destination="Uhj-af-aj4" id="cwL-kG-hsc"/>
+                        <outlet property="imageView" destination="2aH-qT-ydF" id="0sg-nM-dQx"/>
                         <outlet property="nameField" destination="sPI-kT-290" id="ear-8V-F5B"/>
                         <outlet property="serialNumberField" destination="bnD-Aq-Mfi" id="fob-EG-3Of"/>
                         <outlet property="valueField" destination="Zox-1w-r05" id="r1r-uE-wDn"/>
@@ -209,7 +226,7 @@
     </scenes>
     <resources>
         <systemColor name="secondaryLabelColor">
-            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
